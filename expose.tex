@@ -1,0 +1,81 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
+\documentclass[ngerman]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[acronym,nonumberlist]{glossaries-extra}
+\usepackage{cleveref}
+\usepackage{nameref}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{attachfile2}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{tablefootnote}
+\usepackage{threeparttable}
+% ngerman = Deutsch in neuer Rechtschreibung, alternativ english
+\usepackage{babel} % automatische Sprachunterstützung
+
+\usepackage[utf8]{inputenc} % Kodierung der Non-ASCII-Zeichen
+\usepackage[T1]{fontenc} % Moderne Fonts, Trennung von Wörtern mit Umlauten
+\usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
+
+\usepackage{embrac}% upright brackets in emphasised text, () and [], empfohlen
+
+%\usepackage{biblatex}% besser als bibtex, aber dann biber statt bibtex benutzen
+
+\begin{document}
+
+\title{Evaluation von KI-Funktionen in modernen Entwicklungsumgebungen}
+\author{Konstantin Fastovski, Silas Rißler}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \Huge
+        Evaluation von KI-Funktionen in modernen Entwicklungsumgebungen
+
+        \LARGE
+        \vspace{1.5cm}
+        \textbf{Silas Rißler}
+
+        \textbf{Konstantin Fastovski}
+
+        \vfill
+
+        \Large
+        Angewandte Informatik \\
+        Duale Hochschule Baden-Württemberg Stuttgart Campus Horb \\
+        \vspace{1.5cm}
+
+        Oktober 2026
+
+        \vspace{1cm}
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\section{Exposé}
+
+Dieser Artikel dient der Gegenüberstellung mehrerer beliebter Entwicklungsumgebungen bzw. Text-Editoren im Bezug auf die Nutzerfreundlichkeit, Transparenz und Qualität der von ihnen angebotenen Werkzeuge zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwicklern. Es wird identifiziert, welche Design-Prinzipien sich bei mehreren Produkten durchgesetzt haben und weshalb. Weiterhin wird evaluiert, welche Fehler unbeliebte Umsetzungen von KI-Einbindungen machen.
+
+Hierzu werden einige Code-Editoren, Integrated Development Environments (IDEs) und andere Programme getestet und verglichen, die KI in den Prozess der Software-Entwicklung einbeziehen. Es wird analysiert, welche Entscheidungen in der Gestaltung der Features Nutzer*innen das Vertrauen in die Ausgabe nehmen oder intransparent mit dem Eingabekontext umgehen, was zwei der Hauptgründe von Entwickler*innen für das Nicht-Benutzen von KI bei ihrer Arbeit sind. \cite{Sergeyuk_2025}
+
+Es wird eine Datenlage geschaffen, durch die die wesentlichen Eigenschaften der Implementierungen von beispielsweise KI-Chatfenstern deutlich werden, die für Nutzer*innen von Bedeutung sind. Weiterhin werden Features nach bestimmten Anwendungsfällen --- wie zum Beispiel das Erkunden von Lösungen gegenüber konkreter Implementierung --- gruppiert und deren Qualität in bestimmten Einsatzgebieten untersucht, um mögliche Parallelen zu der statistische Verteilung von Aufgabentypen zu erkennen, für die Entwickler*innen häufiger bzw. seltener zu KI greifen. \cite{barke2022groundedcopilotprogrammersinteract} 
+
+\bibliographystyle{abbrv}
+\bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
+
+\end{document}
