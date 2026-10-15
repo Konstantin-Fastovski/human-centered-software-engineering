@@ -1,0 +1,92 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
+\documentclass[ngerman]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[acronym,nonumberlist]{glossaries-extra}
+\usepackage{cleveref}
+\usepackage{nameref}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{attachfile2}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{tablefootnote}
+\usepackage{threeparttable}
+% ngerman = Deutsch in neuer Rechtschreibung, alternativ english
+\usepackage{babel} % automatische Sprachunterstützung
+
+\usepackage[utf8]{inputenc} % Kodierung der Non-ASCII-Zeichen
+\usepackage[T1]{fontenc} % Moderne Fonts, Trennung von Wörtern mit Umlauten
+\usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
+
+\usepackage{embrac}% upright brackets in emphasised text, () and [], empfohlen
+
+%\usepackage{biblatex}% besser als bibtex, aber dann biber statt bibtex benutzen
+
+\begin{document}
+
+\title{Evaluation von KI-Funktionen in modernen Entwicklungsumgebungen}
+\author{Konstantin Fastovski, Silas Rißler}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \Huge
+        Evaluation von KI-Funktionen in modernen Entwicklungsumgebungen
+
+        \LARGE
+        \vspace{1.5cm}
+        \textbf{Silas Rißler}
+
+        \textbf{Konstantin Fastovski}
+
+        \vfill
+
+        \Large
+        Angewandte Informatik \\
+        Duale Hochschule Baden-Württemberg Stuttgart Campus Horb \\
+        \vspace{1.5cm}
+
+        Oktober 2026
+
+        \vspace{1cm}
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\section{Exposé}
+    \subsection{Thema}
+    Dieser Artikel untersucht moderne Entwicklungsumgebungen bzw. Text-Editoren aus Sicht ihrer Nutzer*innen. Hauptbestandteil sind die angebotenen Werkzeuge zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwicklern. Diese Werkzeuge werden auf ihre Nutzerfreundlichkeit, Tranzparenz sowie Qualität untersucht. Daraus wird identifiziert, welche Design-Prinzipien sich bei Produkten durchsetzen und weshalb. Gleichzeitig werden auch die Fehler von unbeliebten Umsetzungen klar.
+
+    \subsection{Motivation}
+    KI-gestützte Werkzeuge sind inzwischen in vielen Entwicklungsumgebungen zu finden, werden aber nicht von allen Entwickler*innen genutzt. Als Hauptgründe dafür werden fehlendes Vertrauen in die Ausgaben sowie intransperenter Umgang mit den Eingaben genannt \cite{Sergeyuk_2025}. Folgende Teilfragen werden dabei in der Untersuchung berücksichtigt:
+    \begin{itemize}
+      \item Welche Gestaltungsentscheidungen fördern bzw. untergraben das Vertrauen in die Ausgabe der KI?
+      \item Wie transparent machen die Werkzeuge, welcher Kontext (Dateien, Auswahl, Projektstruktur) in die Anfrage einfließt?
+      \item Welche Design-Prinzipien finden sich in mehreren Produkten wieder, und was spricht für sie?
+      \item Wie unterscheidet sich die Qualität der Features?
+    \end{itemize}
+
+    \subsection{Vorgehen}
+    Zunächst werden einige Code-Editoren, Integrated Development Environments (IDEs) und weitere Programme ausgewählt, die KI in die Software-Entwicklung einbeziehen. Diese werden anhand eines einheitlichen Kriterienkatalogs getestet und verglichen. Des Weiteren wird analysiert, welche Entscheidungen in der Gestaltung der Features, welche Auswirkungen auf die Nutzer*innen hat. Diese Features werden nach Anwendungsfälle gruppiert, etwa dem Erkunden von Lösungen gegenüber der konkreten Implementierung. Ziel ist es mögliche Parallelen zur statistischen Verteilung der Aufgabentypen zu erkennen, für die Entwickler*innen häufiger bzw. seltener zu KI greifen \cite{barke2022groundedcopilotprogrammersinteract}.
+
+    \subsection{Ergebnis}
+    Es entsteht eine Datenlage, aus der die wesentlichen Eigenschaften der Implementierungen von beispielsweise KI-Chatfenstern deutlich werden, die für Nutzer*innen von Bedeutung sind. Daraus werden Nutzbarkeitsfaktoren abgeleitet, die Effektivität und Akzeptanz von KI-Werkzeugen beeinflussen, sowie Empfehlungen für die Gestaltung von vertrauenswürdigen und transparenten Werkzeugen.
+
+\bibliographystyle{abbrv}
+\bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
+
+\end{document}
