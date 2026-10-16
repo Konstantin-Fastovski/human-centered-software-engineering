@@ -68,12 +68,23 @@
 \newpage
 
 \section{Exposé}
+    \subsection{Thema}
+    Dieser Artikel untersucht moderne Entwicklungsumgebungen, Text-Editoren und Coding Agenten aus Sicht ihrer Nutzer*innen. Hauptbestandteil sind die angebotenen Werkzeuge zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwicklern. Diese Werkzeuge werden auf ihre Nutzerfreundlichkeit, Tranzparenz sowie Qualität untersucht. Daraus wird identifiziert, welche Design-Prinzipien sich bei Produkten durchsetzen und weshalb. Gleichzeitig werden auch die Fehler von unbeliebten Umsetzungen klar.
 
-Dieser Artikel dient der Gegenüberstellung mehrerer beliebter Entwicklungsumgebungen bzw. Text-Editoren im Bezug auf die Nutzerfreundlichkeit, Transparenz und Qualität der von ihnen angebotenen Werkzeuge zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwicklern. Es wird identifiziert, welche Design-Prinzipien sich bei mehreren Produkten durchgesetzt haben und weshalb. Weiterhin wird evaluiert, welche Fehler unbeliebte Umsetzungen von KI-Einbindungen machen.
+    \subsection{Motivation}
+    KI-gestützte Werkzeuge sind inzwischen in vielen Entwicklungsumgebungen zu finden, werden aber nicht von allen Entwickler*innen genutzt. Als Hauptgründe dafür werden fehlendes Vertrauen in die Ausgaben sowie intransperenter Umgang mit den Eingaben genannt \cite{Sergeyuk_2025}. Folgende Teilfragen werden dabei in der Untersuchung berücksichtigt:
+    \begin{itemize}
+      \item Welche Gestaltungsentscheidungen fördern bzw. untergraben das Vertrauen in die Ausgabe der KI?
+      \item Wie transparent machen die Werkzeuge, welcher Kontext (Dateien, Auswahl, Projektstruktur) in die Anfrage einfließt?
+      \item Welche Design-Prinzipien finden sich in mehreren Produkten wieder und wieso bewähren sie sich?
+      \item Wie unterscheidet sich die Qualität der Features und wie wirkt sie sich auf die Zufriedenheit der Nutzer*innen aus?
+    \end{itemize}
 
-Hierzu werden einige Code-Editoren, Integrated Development Environments (IDEs) und andere Programme getestet und verglichen, die KI in den Prozess der Software-Entwicklung einbeziehen. Es wird analysiert, welche Entscheidungen in der Gestaltung der Features Nutzer*innen das Vertrauen in die Ausgabe nehmen oder intransparent mit dem Eingabekontext umgehen, was zwei der Hauptgründe von Entwickler*innen für das Nicht-Benutzen von KI bei ihrer Arbeit sind. \cite{Sergeyuk_2025}
+    \subsection{Vorgehen}
+    Zunächst werden einige Code-Editoren, Integrated Development Environments (IDEs) und weitere Programme ausgewählt, die KI in die Software-Entwicklung einbeziehen. Diese werden anhand eines einheitlichen Kriterienkatalogs getestet und verglichen. Des Weiteren wird analysiert welche Auswirkungen auf die Nutzer*innen bestimmte Entscheidungen in der Gestaltung der Features haben. Diese Features werden andhand von Anwendungsfällen gruppiert, etwa dem Erkunden von Lösungen gegenüber der konkreten Implementierung. Ziel ist es mögliche Parallelen zur statistischen Verteilung der Aufgabentypen zu erkennen, für die Entwickler*innen häufiger bzw. seltener zu KI greifen \cite{barke2022groundedcopilotprogrammersinteract}.
 
-Es wird eine Datenlage geschaffen, durch die die wesentlichen Eigenschaften der Implementierungen von beispielsweise KI-Chatfenstern deutlich werden, die für Nutzer*innen von Bedeutung sind. Weiterhin werden Features nach bestimmten Anwendungsfällen --- wie zum Beispiel das Erkunden von Lösungen gegenüber konkreter Implementierung --- gruppiert und deren Qualität in bestimmten Einsatzgebieten untersucht, um mögliche Parallelen zu der statistischen Verteilung von Aufgabentypen zu erkennen, für die Entwickler*innen häufiger bzw. seltener zu KI greifen. \cite{barke2022groundedcopilotprogrammersinteract}
+    \subsection{Ergebnis}
+    Es entsteht eine Datenlage, aus der die wesentlichen Eigenschaften der Implementierungen von beispielsweise KI-Chatfenstern deutlich werden, die für Nutzer*innen von Bedeutung sind. Daraus werden Nutzbarkeitsfaktoren abgeleitet, die Effektivität und Akzeptanz von KI-Werkzeugen beeinflussen, sowie Empfehlungen für die Gestaltung von vertrauenswürdigen und transparenten Werkzeugen.
 
 \bibliographystyle{abbrv}
 \bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
