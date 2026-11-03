@@ -1,0 +1,93 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
+\documentclass[ngerman]{seminarvorlage}
+% ngerman = Deutsch in neuer Rechtschreibung, alternativ english
+\usepackage{babel} % automatische Sprachunterstützung
+
+\usepackage[utf8]{inputenc} % Kodierung der Non-ASCII-Zeichen
+\usepackage[T1]{fontenc} % Moderne Fonts, Trennung von Wörtern mit Umlauten
+\usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
+
+\usepackage{embrac}% upright brackets in emphasised text, () and [], empfohlen
+
+%\usepackage{biblatex}% besser als bibtex, aber dann biber statt bibtex benutzen
+
+\begin{document}
+
+% Unbedingt angeben: Titel, Autoren
+% Freiwillig: Adresse, E-Mail
+\title{Evaluation von KI-Funktionen in modernen Entwicklungsumgebungen}
+\numberofauthors{2}
+\author{
+  \alignauthor Konstantin Fastovski \\
+    \email{konstantin@fastovski.org}
+  \alignauthor Silas Rißler\\
+  \email{}
+}
+
+\maketitle% Titelangaben produzieren, aber kein Inhaltsverzeichnis, \tableofcontents funktioniert nicht!
+\newpage
+
+\abstract{Dieser Artikel untersucht moderne Entwicklungsumgebungen, Text-Editoren und Coding Agenten aus Sicht ihrer Nutzer*innen. Hauptbestandteil sind die angebotenen Werkzeuge zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwicklern. Diese Werkzeuge werden auf ihre Nutzerfreundlichkeit, Tranzparenz sowie Qualität untersucht. Daraus wird identifiziert, welche Design-Prinzipien sich bei Produkten durchsetzen und weshalb. Gleichzeitig werden auch die Fehler von unbeliebten Umsetzungen klar.}
+
+\keywords{AI, KI, Software Engineering, Software-Entwicklung}
+
+% ca. 1 Seite
+\section{Einleitung}
+
+% ca. 1 Seite
+\section{Wie benutzen Entwickler*innen ihre IDE?}
+
+% ca. 2 Seiten, Katalog der Bewertungskriterien
+\section{Kriterien-Katalog}
+
+% ca. 2 Seiten
+\section{Vertrauens- und Tranzparenzentscheidungen}
+
+% ca. 2 Seiten
+\section{Feature und Designmuster}
+
+% ca. 1 Seite
+\section{Fazit}
+
+% Figure example:
+% \begin{figure}[htbp]
+% \begin{center}
+% \unitlength8mm % hier skalieren, falls gewünscht
+% \begin{picture}(4,6)
+% %außen
+% \put(0,0){\line(1,0){4}}
+% \put(4,0){\line(0,1){3}}
+% \put(4,3){\line(-1,1){2}}
+% \put(2,5){\line(-1,-1){2}}
+% \put(0,3){\line(0,-1){3}}
+% %innen
+% \put(4,3){\line(-1,0){4}}
+% \end{picture}
+% \end{center}
+% \caption{Eine typische Gummibärenfabrik
+%          siehe auch~\protect\cite{Ivory2001}.}
+% \label{fabrik}
+% \end{figure}
+
+% Table example:
+% \begin{table}[htbp]
+% \begin{center}
+% \begin{tabular}{|c|c|c|}
+% \hline
+% Material & Tierart & essbar\\
+% \hline
+% Gummi & Bär & ja\\
+% Lakritz & Schnecke & geht so\\
+% \hline
+% \end{tabular}
+% \end{center}
+% \caption{Das gibt es alles.}
+% \label{tttabelle}
+% \end{table}
+
+\bibliographystyle{abbrv}
+\bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
+
+\end{document}
