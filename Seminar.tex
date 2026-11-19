@@ -3,7 +3,7 @@
 % Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
 \documentclass[ngerman]{seminarvorlage}
 % ngerman = Deutsch in neuer Rechtschreibung, alternativ english
-\usepackage{babel} % automatische Sprachunterstützung
+\usepackage[shorthands=off]{babel} % automatische Sprachunterstützung
 
 \usepackage[utf8]{inputenc} % Kodierung der Non-ASCII-Zeichen
 \usepackage[T1]{fontenc} % Moderne Fonts, Trennung von Wörtern mit Umlauten
@@ -37,7 +37,7 @@
 \section{Einleitung}
 KI-gestützte Werkzeuge sind inzwischen in vielen Entwicklungsumgebungen, Text-Editoren und Coding-Agenten zu finden, werden aber nicht von allen Entwickler*innen genutzt. Als Hauptgründe dafür werden fehlendes Vertrauen in die Ausgaben sowie ein intransparenter Umgang mit den Eingaben genannt \cite{Sergeyuk_2025}. Ob ein Werkzeug im Alltag angenommen wird, hängt somit nicht allein von der Qualität der Modelle ab, sondern ebenso von der Gestaltung der Funktionen aus Sicht der Nutzer*innen.
 
-Dieser Artikel untersucht deshalb aktuelle Entwicklungsumgebungen, Text-Editoren und Coding-Agenten mit ihren Werkzeugen zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwickler*innen. Betrachtet werden Nutzerfreundlichkeit, Transparenz und Qualität der Funktionen. Ziel ist es, zu identifizieren, welche Design-Prinzipien sich in Produkten durchsetzen und weshalb, und gleichzeitig die Fehler unbeliebter Umsetzungen sichtbar zu machen. Dabei werden folgende Teilfragen berücksichtigt:
+Dieser Artikel untersucht deshalb aktuelle Entwicklungsumgebungen, Text-Editoren und Coding-Agenten mit ihren Werkzeugen zur Einbindung von künstlicher Intelligenz (KI) in den Workflow von Software-Entwickler*innen. Betrachtet werden Nutzerfreundlichkeit, Transparenz und Qualität der Funktionen. Ziel ist es, zu identifizieren, welche Design-Prinzipien sich in Produkten durchsetzen und weshalb. Gleichzeitig werden die Fehler unbeliebter Umsetzungen sichtbar gemacht. Funktionenolgende Teilfragen werden berücksichtigt:
 \begin{itemize}
   \item Welche Gestaltungsentscheidungen fördern bzw. untergraben das Vertrauen in die Ausgabe der KI?
   \item Wie transparent machen die Werkzeuge, welcher Kontext (Dateien, Auswahl, Projektstruktur) in die Anfrage einfließt?
@@ -47,13 +47,79 @@ Dieser Artikel untersucht deshalb aktuelle Entwicklungsumgebungen, Text-Editoren
 
 Zur Beantwortung wird zunächst eine Auswahl an Code-Editoren, Integrated Development Environments (IDEs) und weiteren Programmen getroffen, die KI in die Software-Entwicklung einbeziehen. Diese werden anhand eines einheitlichen Kriterienkatalogs getestet und verglichen. Die untersuchten Features werden nach Anwendungsfällen gruppiert, etwa dem Erkunden von Lösungen gegenüber der konkreten Implementierung. So lassen sich Parallelen zur statistischen Verteilung der Aufgabentypen erkennen, für die Entwickler*innen häufiger bzw. seltener auf KI zurückgreifen \cite{barke2022groundedcopilotprogrammersinteract}.
 
-Das Ergebnis ist eine Datenlage, aus der die für Nutzer*innen wesentlichen Eigenschaften der Implementierungen, beispielsweise von KI-Chatfenstern, deutlich werden. Daraus werden Nutzbarkeitsfaktoren abgeleitet, die Effektivität und Akzeptanz von KI-Werkzeugen beeinflussen, sowie Empfehlungen für die Gestaltung vertrauenswürdiger und transparenter Werkzeuge. Der weitere Artikel ist wie folgt aufgebaut: \cref{sec:nutzung} beschreibt, wie Entwickler*innen ihre IDE nutzen, \cref{sec:kriterien} stellt den Kriterienkatalog vor, \cref{sec:vertrauen,sec:muster} behandeln Vertrauens- und Transparenzentscheidungen sowie Feature- und Designmuster. \cref{sec:fazit} schafft einen Überblick zu den untersuchten Kriterien, um daraus ein Fazit zu ziehen.
+Das Ergebnis ist eine Datenlage, aus der die für Nutzer*innen wesentlichen Eigenschaften der Implementierungen, beispielsweise von KI-Chatfenstern, deutlich werden. Daraus werden Nutzbarkeitsfaktoren abgeleitet, die Effektivität und Akzeptanz von KI-Werkzeugen beeinflussen, sowie Empfehlungen für die Gestaltung vertrauenswürdiger und transparenter Werkzeuge. Der weitere Artikel ist wie folgt aufgebaut: \cref{sec:nutzung} beschreibt, wie Entwickler*innen ihre IDE nutzen. In \cref{sec:auswahl} wird eine Auswahl von Progrshorthands=offammen getroffen, die untersucht werden. \cref{sec:kriterien} stellt den Kriterienkatalog vor. \cref{sec:vertrauen,sec:muster} behandeln Vertrauens- und Transparenzentscheidungen sowie Feature- und Designmuster. \cref{sec:fazit} schafft einen Überblick zu den untersuchten Kriterien, um daraus ein Fazit zu ziehen.
 
 % ca. 1 Seite
 \section{Wie benutzen Entwickler*innen ihre IDE?}\label{sec:nutzung}
 
+
+\section{Auswahl der zu untersuchenden IDEs}\label{sec:auswahl}
+
 % ca. 2 Seiten, Katalog der Bewertungskriterien
-\section{Kriterien-Katalog}\label{sec:kriterien}
+\section{Kriterienkatalog}\label{sec:kriterien}
+Dieser Abschnitt definiert ein einheitliches Bewertungsschema, nach dem die ausgewählten Anwendungen bewertet werden. Das Ziel der finalen Bewertung ist, die Einbindnung von generativer KI zur Code-Generierung und -Analyse zu quantifizieren. Zur Abgrenzung folgt zusätzlich eine nichterschöpfende Auflistung der nicht zu bewertenden Eigenschaften:
+\begin{enumerate}
+  \item Gesamtheit der Nutzerfreundlichkeit des IDEs
+  \item Qualität der Ausgabe verwendeter KI-Modelle (bezogen sowohl auf das Modell selbst als auch auf die System-Prompt)
+  \item Sämtliche Aspekte, die die Nutzerfreundlichkeit nicht beeinflussen (z.B. Performance, Ressourcernverbrauch)
+\end{enumerate}
+Bewertet werden explizit folgende Komponenten:
+\begin{enumerate}
+  \item UI und UX des KI-Chats (Chat-Fenster bei herkömmlichen IDEs, gesamte Oberfläche bei AI-IDEs)
+  \item UX in anderen Oberflächen der Software, von denen Software-Entwickler insbesondere beim Verwenden von KI gebrauch machen.
+\end{enumerate}
+
+Für das Bewertungsschema wird folgendes Vorgehen verwendet:
+\begin{itemize}
+  \item Es wird eine Menge an Kriterien definiert und in einem Katalog festgehalten.
+  \item Alle Kriterien aus dem Katalog werden mit einem Gewicht von null bis hundert versehen.
+  \item Für jede gewählte Software wird jedes Kriterium aus dem Katalog mit einer Punktzahl von null bis zehn bewertet.
+  \item Die Finale Note eines Programms ist die Summe aller Punktzahlen multipliziert mit dem zu ihrem Kriterium zugehörigen Gewicht geteilt durch die Summe aller Gewichte.
+
+\end{itemize}
+Es folgen alle Kriterien, die bewertet werden und eine Begründung für ihre Wahl und Gewichtung.
+
+\subsection{Prompt-Anhänge}\label{krit:prompt-anhaenge}
+Es wird betrachtet, wie gut ersichtlich ist, welche Dateien bzw. andere Anhänge als Teil einer Prompt mitgeschickt werden, wie einfach es ist diese zu entfernen, andere Anhänge hinzuzufügen und ob transparent ist, wie genau die Prompt inklusive Anghänge von Seiten des Systems aussieht, bevor sie abgeschickt wird.
+
+Hintergrund ist, dass Entwickler genau wissen wollen, welche Informationen ein KI-Modell hat, wenn sie ihm eine Aufgabe geben. Den Begriff des "Prompt-Engineering" gibt es nicht ohne Grund, denn sowohl Inhalte einer Prompt, also auch die Reihenfolge bestimmter Informationen, sind für Entwickler von Interesse, die die Ausgabe der KI genau kontrollieren wollen.
+
+Als Gewicht wird 70 gewählt, da Dateikontext ein zentraler Aspekt der KI-Interaktion beim Programmieren ist.
+
+\subsection{Erkundeter Kontext}
+Bewertet wird, wo und wie gut sichtbar ist, welche Dateien der Agent bei einer Erkundung des Projekts gefunden, vollständig gelesen, oder teilwerse gelesen hat. In diese Kategorie gehört auch Information, die das Modell durch die Ausführung von Konsolen-Befehlen erhält.
+
+Ähnlich wie in \cref{krit:prompt-anhaenge} geht es hierbei um das genaue Wissen über den von der KI verwendeten Kontext, welches sich Entwickler meist wünschen.
+
+Als Gewicht wird 70 gewählt, da Klarheit über Kontext ein zentraler Aspekt der KI-Interaktion beim Programmieren ist.
+
+\subsection{Zugriff auf "Reasoning" Ausgabe}
+Es wird bewertet, ob und wie einfach Nutzer*innen Zugriff auf die "Gedanken" des Agenten haben und was die Standardeinstellungen vorsehen.
+
+Zur Diagnostizierung eines Fehlversuchs eines Agenten an einer Aufgabe oder eines "loopenden"\footnote{"Looping" ist ein Fehlerbild das vor allem in parameterarmen oder stark quantisierten KI-Modellen bei schwierigen Problemen auftritt. Das Symptop ist, dass das Modell beginnt einen Satz oder Paragraphen immer wieder zu wiederholen und somit keinen Fortschritt mehr an der Lösung der Aufgabe zu machen.} Agenten hilft häufig ein Blick in den "Reasoning-Output" des Modells. Es trägt außerdem dazu bei, die KI weniger wie eine Black Box wirken zu lassen.
+
+Das Kriterium ist mit 90 gewichtet, da Kriterien, die in Verbindung mit Zufriff auf tatsächliche Ausgabe des KI-Modells stehen, von allen Kriterien die am schwersten gewichteten sein sollten.
+
+\subsection{Ausführung von Konsolen-Befehlen}
+Untersucht wird, wie KI-Implementierungen mit von Agenten ausgeführten Befehlen in der Konsole umgehen. Typisch sind hierbei Rückfragen an den Nutzer, ob der Agent bestimmte Befehle ausführen darf. Wichtig bei diesem Kriterium ist, dass beide möglichen Extreme negativ bewertet werden. Das bedeutet sowohl das unerlaubte Ausführen von Befehlen, als auch ein zu häufiges nachfragen nach Erlaubnis zum Ausführen von unkritischen Befehlen führt zu Abzügen in der Punktzahl.
+
+Dieses Kriterium ist sicherheitskritisch, da ein Agenten mit Konsolen-Befehlen unbegrenzte Möglichkeiten haben Schaden auf den Systemen von Nutzer*innen anzurichten, wenn der Harness der Software sie nicht davon abhält.
+
+Als sicherheitskritische Eigenschaft ist dieses Kriterium mit 90 gewichtet.
+
+\subsection{Einsicht und Korrektur von Datei-Änderungen}
+Es wird bewertet, wie gut sowohl während einer laufenden Code-Generierung als auch nach einer vollendeten Anfrage die Änderungen des Agenten einsehbar sind. Auch wird untersucht, wie einfach es für Nutzer ist, eine bestimmte Änderung rückgängig zu machen, von Hand anzupassen, oder ihren Agenten auf eine spezifische Stelle im Quellcode aufmerksam zu machen.
+
+Beim Arbeiten in Teams an einem gemeinsamen Projekt, das zentral versionskontrolliert ist, müssen Entwickler genau darauf achten, wo im Projekt ihre Änderungen anfallen. Außerderm soll natürlich jeglicher veränderter Code vor dem Commit überprüft werden.
+
+Wegen der zentralen Position von Versionskontrolle in der professionellen Software-Enwicklung ist dieses Kriterium mit 80 bewertet.
+
+\subsection{Vorinstallierte Tools}
+Agenten-Harnesses beinhalten meist Tools und Skills, die KI-Modelle verwenden können, um die Qualität der Ausgabe zu verbessern. Es wird bewertet, ob und welche nützlichen Tools oder Skills der Harness der bewerteten Programme beinhaltet.
+
+Unentbehrliche Tools wie die Websuche, die es KI-Modellen erlaubt Informationen einzusehen, die später als ihr Knowledge-Cutoff\footnote{Der Knowledge-Cutoff eines KI-Modells ist das aktuellste Datum, von dem Informationen kommen, die in die Trainingsdaten des Modells eingeflossen sind.} veröffentlicht wurden, machen einen großen Unterschied in dem Vertrauen, das Entwickler*innen ihrem Agenten schenken.
+
+Da Tools und Skills auch nachgerüstet werden können und nicht explizit Teil der jeweiligen KI-Implementierung des IDEs sein müssen, ist dieses Kriterium mit 50 gewichtet.
 
 % ca. 2 Seiten
 \section{Vertrauens- und Transparenzentscheidungen}\label{sec:vertrauen}
